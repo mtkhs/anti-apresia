@@ -1,0 +1,6 @@
+#!/bin/sh
+
+source anti-apresia.conf
+
+./anti-apresia-wget $USERID $PASSWD
+

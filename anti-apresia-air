@@ -1,0 +1,15 @@
+#!/bin/sh
+
+source anti-apresia.conf
+
+ap_name_header=`networksetup -getairportnetwork en0 | grep -e "Current Wi-Fi Network:" | awk '{print $4}' | cut -d '_' -f 1`
+
+#echo $ap_name_header
+
+if [ -n "$ap_name_header" ]; then
+	if [ $ap_name_header = "HIU" ]; then
+		./anti-apresia-curl $USERID $PASSWD
+		#curl -d name=$USERID -d pass=$PASSWD http://1.1.1.1:8080/cgi-bin/adeflogin.cgi > /dev/null
+	fi
+fi
+
