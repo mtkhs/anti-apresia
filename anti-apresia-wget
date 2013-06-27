@@ -4,6 +4,6 @@ if [ $# -ne 2 ]; then
 	echo "Usage: $0 [USERID] [PASSWD]" 1>&2
 	exit 1
 else
-	wget -O - --connect-timeout=3 --tries=2 --post-data="name=$1&pass=$2" http://1.1.1.1:8080/cgi-bin/adeflogin.cgi > NUL
+	wget -q -O - --connect-timeout=3 --tries=2 --post-data="name=$1&pass=$2" http://1.1.1.1:8080/cgi-bin/adeflogin.cgi > /dev/null
 fi
 
